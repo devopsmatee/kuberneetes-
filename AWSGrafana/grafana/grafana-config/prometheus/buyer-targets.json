@@ -2,7 +2,7 @@
   {
     "targets": ["10.0.0.189:8093"],
     "labels": {
-      "__meta_ecs_task_arn": "arn:aws:ecs:me-south-1:501175596353:task/proc-prod-V2/b75103885f644d4ebcd973263dc8485a",
+      "__meta_ecs_task_arn": "arn:aws:",
       "__meta_ecs_task_definition_family": "proc-be-buyerportal-V2",
       "__meta_ecs_task_definition_revision": "76",
       "application": "Be-Buyer"
