@@ -2,7 +2,7 @@
   {
     "targets": ["172.31.47.115:8099"],
     "labels": {
-      "__meta_ecs_task_arn": "arn:aws:ecs:me-south-1:501175596353:task/proc-QA/e42c8b147809403cbefda8570eb45260",
+      "__meta_ecs_task_arn": "arn:",
       "__meta_ecs_task_definition_family": "proc-be-grafana-qa",
       "__meta_ecs_task_definition_revision": "5",
       "application": "Be-Grafana"
