@@ -1,0 +1,29 @@
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/fargate-targets.json:/etc/prometheus/fargate-targets.json
+      - ./prometheus/seller-targets.json:/etc/prometheus/seller-targets.json
+      - ./prometheus/buyer-targets.json:/etc/prometheus/buyer-targets.json
+
+  grafana:
+    image: grafana/grafana:10.1.0
+    container_name: grafana
+    user: root
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_DOMAIN=localhost
+      - GF_LOG_MODE=console file
+      - GF_LOG_FILTERS=alerting.notifier.slack:debut alertmanager:debug ngalert:debug

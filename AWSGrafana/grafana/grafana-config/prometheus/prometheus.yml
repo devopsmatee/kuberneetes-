@@ -1,0 +1,18 @@
+scrape_configs:
+  - job_name: 'fargate-tasks'
+    metrics_path: '/actuator/prometheus'
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/fargate-targets.json'
+
+  - job_name: 'Seller'
+    metrics_path: '/actuator/prometheus'
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/seller-targets.json'
+
+  - job_name: 'Buyer'
+    metrics_path: '/actuator/prometheus'
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/buyer-targets.json'
